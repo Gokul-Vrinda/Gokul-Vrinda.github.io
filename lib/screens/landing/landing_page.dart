@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -202,6 +203,12 @@ class LandingPage extends StatelessWidget {
                                   isMobile: mobileCheck,
                                   onTap: () {
                                     cardProvider.openCard();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ),
+                                    );
                                   },
                                 ),
                               ],
