@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gokul_weds_vrinda/const/app_colors.dart';
 import 'package:gokul_weds_vrinda/providers/audio_provider.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/widgets/ceremony_info.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/envolop.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/music_button.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/photo_gallery.dart';
@@ -103,9 +104,11 @@ class _HomePageState extends State<HomePage>
                 ],
               ),
               // Example usage:
+              CeremonyInfo(),
+              SizedBox(height: 50),
               const CustomHeading(text: "Photo Gallery"),
               PhotoGallery(),
-              SizedBox(height: 50),
+              SizedBox.shrink(),
             ],
           ),
         ),
