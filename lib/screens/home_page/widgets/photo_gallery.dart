@@ -224,8 +224,6 @@ class _PhotoGalleryState extends State<PhotoGallery> {
     final blur = 3.5 * t;
     final angle = -delta.clamp(-1.5, 1.5) * 0.55; // radians
 
-    // Side photos sit slightly closer together than their natural spacing
-    // so the overlap feels layered.
     final dx = delta.sign * (spacing * t + spacing * 0.8 * (distance - t));
 
     Widget card = _PhotoCard(
@@ -245,15 +243,18 @@ class _PhotoGalleryState extends State<PhotoGallery> {
       );
     }
 
-    return Transform.translate(
-      offset: Offset(dx, 0),
-      child: Transform(
-        alignment: Alignment.center,
-        transform: Matrix4.identity()
-          ..setEntry(3, 2, 0.0012)
-          ..rotateY(angle)
-          ..scale(scale, scale, 1.0),
-        child: Opacity(opacity: opacity, child: card),
+    
+    return RepaintBoundary(
+      child: Transform.translate(
+        offset: Offset(dx, 0),
+        child: Transform(
+          alignment: Alignment.center,
+          transform: Matrix4.identity()
+            ..setEntry(3, 2, 0.0012)
+            ..rotateY(angle)
+            ..multiply(Matrix4.diagonal3Values(scale, scale, 1.0)),
+          child: Opacity(opacity: opacity, child: card),
+        ),
       ),
     );
   }
@@ -321,7 +322,7 @@ class _PhotoCard extends StatelessWidget {
         child: Image.asset(
           image,
           fit: BoxFit.cover,
-          filterQuality: FilterQuality.medium,
+          filterQuality: FilterQuality.low,
           errorBuilder: (_, __, ___) => Container(
             color: Colors.grey.shade300,
             alignment: Alignment.center,

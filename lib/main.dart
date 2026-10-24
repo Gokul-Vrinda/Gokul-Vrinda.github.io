@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gokul_weds_vrinda/providers/app_providers.dart';
 import 'package:gokul_weds_vrinda/screens/landing/landing_page.dart';
+import 'package:gokul_weds_vrinda/services/firebase_services.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  await FirebaseServices.init();
   runApp(
     MultiProvider(providers: AppProviders.allProviders, child: const MyApp()),
   );

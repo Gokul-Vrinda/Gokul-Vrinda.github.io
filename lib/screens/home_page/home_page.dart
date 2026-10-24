@@ -8,6 +8,8 @@ import 'package:gokul_weds_vrinda/screens/home_page/widgets/music_button.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/photo_gallery.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/reception_info.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/venue_location_section.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/widgets/wish_list_section.dart';
+import 'package:gokul_weds_vrinda/widgets/colnrow_wordmark.dart';
 import 'package:gokul_weds_vrinda/widgets/custom_heading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +32,12 @@ class _HomePageState extends State<HomePage>
       vsync: this,
       duration: const Duration(seconds: 2),
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(const AssetImage('assets/images/BG_2.jpeg'), context);
   }
 
   @override
@@ -115,16 +123,21 @@ class _HomePageState extends State<HomePage>
               const VenueLocationSection(),
               SizedBox.shrink(),
               GuestbookSection(),
-              SizedBox.shrink(),
+
               Text(
                 "Your presence would be the greatest gift we could receive!",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.tinos(
                   fontSize: 13,
-                  color: const Color(0xFF6A5A4A),
+                  color: AppColors.fontColor,
                 ),
               ),
+              WishesListSection(),
               SizedBox.shrink(),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: ColnrowWordmark(fontSize: 15),
+              ),
             ],
           ),
         ),
