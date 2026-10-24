@@ -5,6 +5,7 @@ import 'package:gokul_weds_vrinda/screens/home_page/widgets/ceremony_info.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/envolop.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/music_button.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/photo_gallery.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/widgets/reception_info.dart';
 import 'package:gokul_weds_vrinda/widgets/custom_heading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -54,11 +55,11 @@ class _HomePageState extends State<HomePage>
           width: double.infinity,
           decoration: const BoxDecoration(
             // Base warm off-white / ivory color
-            color: Color(0xFFF9F6EE),
+            color: Color(0xFFF3E3C3),
             image: DecorationImage(
-              image: AssetImage('assets/images/background_cream.jpeg'),
-              repeat: ImageRepeat.repeat,
+              image: AssetImage('assets/images/BG_2.jpeg'),
               opacity: 0.85,
+              fit: BoxFit.cover,
               // BlendMode allows the base color to show through the paper fibers
               colorFilter: ColorFilter.mode(
                 Color(0xFFF7F4EA),
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           child: Column(
-            spacing: 20,
+            spacing: 50,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Envolop(),
@@ -105,9 +106,9 @@ class _HomePageState extends State<HomePage>
               ),
               // Example usage:
               CeremonyInfo(),
-              SizedBox(height: 50),
-              const CustomHeading(text: "Photo Gallery"),
+              CustomHeading(text: "Photo Gallery"),
               PhotoGallery(),
+              ReceptionInfo(),
               SizedBox.shrink(),
             ],
           ),

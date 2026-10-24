@@ -68,21 +68,37 @@ class CeremonyInfo extends StatelessWidget {
 
               // Parents: stacked on mobile, side by side on tab / web
               if (isMobile)
-                Column(
+                // Column(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+                //     sasiFamily,
+                //     Padding(
+                //       padding: const EdgeInsets.symmetric(vertical: 16),
+                //       child: SizedBox(
+                //         width: 50,
+                //         child: Divider(
+                //           height: 1,
+                //           color: AppColors.landingCard.withValues(alpha: 0.6),
+                //         ),
+                //       ),
+                //     ),
+                //     sajeevanFamily,
+                //   ],
+                // )
+                Row(
+                  spacing: 10,
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    sasiFamily,
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: SizedBox(
-                        width: 50,
-                        child: Divider(
-                          height: 1,
-                          color: AppColors.landingCard.withValues(alpha: 0.6),
-                        ),
+                    Flexible(child: sasiFamily),
+                    SizedBox(
+                      height: 50,
+                      child: VerticalDivider(
+                        width: 40,
+                        color: AppColors.landingCard.withValues(alpha: 0.6),
                       ),
                     ),
-                    sajeevanFamily,
+                    Flexible(child: sajeevanFamily),
                   ],
                 )
               else
