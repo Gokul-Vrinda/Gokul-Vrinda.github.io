@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage>
       }
     }
     return Scaffold(
+      backgroundColor: Color(0xFFF6EADB),
       body: Scrollbar(
         controller: _scrollController,
         thumbVisibility: true,
@@ -73,9 +74,10 @@ class _HomePageState extends State<HomePage>
             decoration: const BoxDecoration(
               color: Color(0xFFF3E3C3),
               image: DecorationImage(
-                image: AssetImage(AppAssets.background),
+                image: AssetImage(AppAssets.background,),
                 opacity: 0.85,
                 fit: BoxFit.cover,
+                 filterQuality: FilterQuality.low,
                 colorFilter: ColorFilter.mode(
                   Color(0xFFF7F4EA),
                   BlendMode.multiply,
