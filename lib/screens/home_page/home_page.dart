@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage>
     }
     return Scaffold(
       body: SingleChildScrollView(
+        primary: true,
         child: Container(
           width: double.infinity,
           decoration: const BoxDecoration(
