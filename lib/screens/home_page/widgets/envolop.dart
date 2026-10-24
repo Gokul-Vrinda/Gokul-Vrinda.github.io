@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gokul_weds_vrinda/const/app_assets.dart';
 
 class Envolop extends StatelessWidget {
   const Envolop({super.key});
@@ -16,9 +17,10 @@ class Envolop extends StatelessWidget {
               Clip.none, // lets the rotated poster overflow without clipping
           children: [
             Image.asset(
-              "assets/images/letter_cover_back.png",
+              AppAssets.envelopeBack,
               width: 900,
               height: 680,
+              filterQuality: FilterQuality.low,
             ),
             Positioned(
               top: 8,
@@ -26,9 +28,10 @@ class Envolop extends StatelessWidget {
               child: Transform.rotate(
                 angle: 0.3,
                 child: Image.asset(
-                  "assets/images/Poster.png",
+                  AppAssets.poster,
                   width: 700,
                   height: 480,
+                  filterQuality: FilterQuality.low,
                 ),
               ),
             ),
@@ -36,15 +39,17 @@ class Envolop extends StatelessWidget {
               top: 20,
               left: 70,
               child: Image.asset(
-                "assets/images/Flower.png",
+                AppAssets.flower,
                 width: 500,
                 height: 480,
+                filterQuality: FilterQuality.low,
               ),
             ),
             Image.asset(
-              "assets/images/letter_cover_front.png",
+              AppAssets.envelopeFront,
               width: 900,
               height: 680,
+              filterQuality: FilterQuality.low,
             ),
           ],
         ),

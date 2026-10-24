@@ -24,6 +24,7 @@ class _LandingPageState extends State<LandingPage> {
     super.didChangeDependencies();
     precacheImage(const AssetImage(AppAssets.leftLandingFlower), context);
     precacheImage(const AssetImage(AppAssets.rightLandingFlower), context);
+    AppAssets.precacheAllAssets(context);
   }
 
   @override
