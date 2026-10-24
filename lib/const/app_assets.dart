@@ -14,6 +14,7 @@ class AppAssets {
   static const String envelopeBack = '${_basePath}letter_cover_back.png';
   static const String envelopeFront = '${_basePath}letter_cover_front.png';
   static const String poster = '${_basePath}Poster.png';
+  static const String envelope = '${_basePath}letter.png';
 
   // Gallery Images
   static const List<String> galleryImages = [

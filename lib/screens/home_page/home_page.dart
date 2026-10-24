@@ -129,12 +129,32 @@ class _HomePageState extends State<HomePage>
                 SizedBox.shrink(),
                 GuestbookSection(),
 
-                Text(
-                  "Your presence would be the greatest gift we could receive!",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.tinos(
-                    fontSize: 13,
-                    color: AppColors.fontColor,
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 14,
+                  ),
+                  decoration: BoxDecoration(
+                    // 🚀 Soft dark/black gradient overlay for crystal-clear text readability
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.landingCard.withAlpha(0),
+                        AppColors.landingCard.withAlpha(200),
+                        AppColors.landingCard.withAlpha(0),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    "Your presence would be the greatest gift we could receive!",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.tinos(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.landingDeepRed,
+                    ),
                   ),
                 ),
                 WishesListSection(),
