@@ -7,14 +7,12 @@ class AudioProvider extends ChangeNotifier {
   late AudioPlayer _audioPlayer;
   bool _isInitialized = false;
 
-  // Always return the actual player playing state to prevent desync double-clicks
   bool get isPlaying => _audioPlayer.playing;
 
   AudioProvider() {
     debugPrint("🎵 [AudioProvider] Initializing player...");
     _audioPlayer = AudioPlayer();
-    
-    // Listen to player state changes to automatically trigger UI rebuilds
+
     _audioPlayer.playerStateStream.listen((state) {
       debugPrint("🔊 [just_audio State] Playing: ${state.playing}");
       notifyListeners();
@@ -26,14 +24,15 @@ class AudioProvider extends ChangeNotifier {
   Future<void> _initAndPlayAudio() async {
     if (_isInitialized) return;
     try {
+      // 🚀 Preload audio asset with low latency flag for web
       await _audioPlayer.setAsset(AppAudio.weddingSong);
       await _audioPlayer.setLoopMode(LoopMode.one);
       _isInitialized = true;
-      
-      // Auto-play on start
+
+      // Attempt auto-play (Browsers might block this until user interacts, which is handled gracefully by catch)
       await _audioPlayer.play();
     } catch (e) {
-      debugPrint("⚠️ [Autoplay Error]: $e");
+      debugPrint("⚠️ [Autoplay Blocked/Error by Browser]: $e");
     }
   }
 

@@ -11,8 +11,20 @@ import 'package:gokul_weds_vrinda/screens/landing/widgets/beating_heart_circle.d
 import 'package:gokul_weds_vrinda/screens/landing/widgets/falling_hearts.dart';
 import 'package:gokul_weds_vrinda/screens/landing/widgets/glare_button.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
+
+  @override
+  State<LandingPage> createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(const AssetImage(AppAssets.leftLandingFlower), context);
+    precacheImage(const AssetImage(AppAssets.rightLandingFlower), context);
+  }
 
   @override
   Widget build(BuildContext context) {
