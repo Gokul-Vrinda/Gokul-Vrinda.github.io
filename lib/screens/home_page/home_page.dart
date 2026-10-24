@@ -3,9 +3,11 @@ import 'package:gokul_weds_vrinda/const/app_colors.dart';
 import 'package:gokul_weds_vrinda/providers/audio_provider.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/ceremony_info.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/envolop.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/widgets/guestbook_section.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/music_button.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/photo_gallery.dart';
 import 'package:gokul_weds_vrinda/screens/home_page/widgets/reception_info.dart';
+import 'package:gokul_weds_vrinda/screens/home_page/widgets/venue_location_section.dart';
 import 'package:gokul_weds_vrinda/widgets/custom_heading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -109,6 +111,19 @@ class _HomePageState extends State<HomePage>
               CustomHeading(text: "Photo Gallery"),
               PhotoGallery(),
               ReceptionInfo(),
+              SizedBox.shrink(),
+              const VenueLocationSection(),
+              SizedBox.shrink(),
+              GuestbookSection(),
+              SizedBox.shrink(),
+              Text(
+                "Your presence would be the greatest gift we could receive!",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.tinos(
+                  fontSize: 13,
+                  color: const Color(0xFF6A5A4A),
+                ),
+              ),
               SizedBox.shrink(),
             ],
           ),

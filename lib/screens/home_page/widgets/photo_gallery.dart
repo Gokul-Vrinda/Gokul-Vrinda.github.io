@@ -5,6 +5,7 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 import 'package:gokul_weds_vrinda/const/app_assets.dart';
+import 'package:gokul_weds_vrinda/const/screen_helper.dart';
 
 class PhotoGallery extends StatefulWidget {
   const PhotoGallery({
@@ -147,16 +148,22 @@ class _PhotoGalleryState extends State<PhotoGallery> {
                     ),
                   ),
                 ),
-                _buildArrow(
-                  alignment: Alignment.centerLeft,
-                  icon: Icons.chevron_left_rounded,
-                  onTap: () => _manualNavigate(-1),
-                ),
-                _buildArrow(
-                  alignment: Alignment.centerRight,
-                  icon: Icons.chevron_right_rounded,
-                  onTap: () => _manualNavigate(1),
-                ),
+
+                ScreenHelper.isMobile(context)
+                    ? const SizedBox.shrink()
+                    : _buildArrow(
+                        alignment: Alignment.centerLeft,
+                        icon: Icons.chevron_left_rounded,
+                        onTap: () => _manualNavigate(-1),
+                      ),
+               
+                ScreenHelper.isMobile(context)
+                    ? const SizedBox.shrink()
+                    : _buildArrow(
+                        alignment: Alignment.centerRight,
+                        icon: Icons.chevron_right_rounded,
+                        onTap: () => _manualNavigate(1),
+                      ),
                 Positioned(
                   bottom: 0,
                   child: Text(
