@@ -7,32 +7,37 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomHeading extends StatelessWidget {
   final String text;
   final Color? color;
-  
+  final double? mobileFontSize;
+  final double? tabletFontSize;
+  final double? desktopFontSize;
+
   const CustomHeading({
     super.key,
     required this.text,
     this.color,
+    this.mobileFontSize,
+    this.tabletFontSize,
+    this.desktopFontSize,
   });
 
   @override
   Widget build(BuildContext context) {
-    // ScreenHelper vech screen size-kku anusrichu font size responsive aakkunnu
     double fontSize;
     if (ScreenHelper.isMobile(context)) {
-      fontSize = 16.0; // Mobile size
+      fontSize = mobileFontSize ?? 16.0;
     } else if (ScreenHelper.isTablet(context)) {
-      fontSize = 24.0; // Tablet size
+      fontSize = tabletFontSize ?? 18.0;
     } else {
-      fontSize = 32.0; // Desktop size
+      fontSize = desktopFontSize ?? 24.0;
     }
 
     return Text(
-      text.toUpperCase(), 
+      text.toUpperCase(),
       style: GoogleFonts.tinos(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,
-        letterSpacing: 2.5,
-        color: color ?? AppColors.fontColor, // Default color if not provided
+        letterSpacing: 1.5,
+        color: color ?? AppColors.fontColor,
       ),
     );
   }
