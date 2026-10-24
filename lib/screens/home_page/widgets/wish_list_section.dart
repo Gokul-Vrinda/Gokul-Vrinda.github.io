@@ -32,7 +32,7 @@ class _WishesListSectionState extends State<WishesListSection> {
       builder: (context, guestbookProvider, child) {
         final wishes = guestbookProvider.wishes;
 
-        // Wish ondenkil matram ee widget kaanikkanam (illengil empty Container return cheyyum)
+        
         if (wishes.isEmpty) {
           return const SizedBox.shrink(); 
         }
@@ -85,7 +85,7 @@ class _WishesListSectionState extends State<WishesListSection> {
                               ),
                               Text(
                                 wish.formattedDateTime, // Assuming WishModel has formatted date
-                                style: TextStyle(
+                                style: GoogleFonts.tinos(
                                   fontSize: 12,
                                   color: Colors.grey[600],
                                 ),

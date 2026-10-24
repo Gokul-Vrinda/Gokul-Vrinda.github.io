@@ -117,7 +117,7 @@ class _GuestbookSectionState extends State<GuestbookSection> {
               controller: _nameController,
               decoration: InputDecoration(
                 hintText: "Enter your name*",
-                hintStyle: TextStyle(color: Colors.grey[500], fontSize: 14),
+                hintStyle: GoogleFonts.tinos(color: Colors.grey[500], fontSize: 14),
                 filled: true,
                 fillColor: const Color(0xFFF6EADB),
                 contentPadding: const EdgeInsets.symmetric(
@@ -155,7 +155,7 @@ class _GuestbookSectionState extends State<GuestbookSection> {
               maxLines: 4,
               decoration: InputDecoration(
                 hintText: "Enter your wishes*",
-                hintStyle: TextStyle(color: Colors.grey[500], fontSize: 14),
+                hintStyle: GoogleFonts.tinos(color: Colors.grey[500], fontSize: 14),
                 filled: true,
                 fillColor: const Color(0xFFF6EADB),
                 contentPadding: const EdgeInsets.all(16),
